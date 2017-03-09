@@ -21,8 +21,6 @@
 
 (defn update-fn [state]
   (-> state
-    ; tick
-    (update-in [:tick] inc)
     ; move the ball
     (assoc-in  [:ball] (next-ball state (:ball state) (:ball-dir state)))
     ; bot paddle move

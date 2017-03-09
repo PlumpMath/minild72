@@ -77,8 +77,5 @@
     :c {
       :court-height court-height
       :court-width court-width
-      :paddle-height paddle-height
-      :paddle-width paddle-width
     }
-    :tick 0
   })

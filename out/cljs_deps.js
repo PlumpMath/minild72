@@ -9,7 +9,7 @@ goog.addDependency("../quil/util.js", ['quil.util'], ['cljs.core', 'clojure.stri
 goog.addDependency("../quil/sketch.js", ['quil.sketch'], ['goog.dom', 'cljs.core', 'quil.middlewares.deprecated_options', 'goog.events.EventType', 'goog.events', 'quil.util']);
 goog.addDependency("../quil/core.js", ['quil.core'], ['org.processingjs.Processing', 'quil.sketch', 'cljs.core', 'clojure.string', 'quil.util']);
 goog.addDependency("../pong/setup.js", ['pong.setup'], ['cljs.core', 'quil.core']);
-goog.addDependency("../pong/fairydust.js", ['pong.fairydust'], ['cljs.core', 'pong.setup']);
+goog.addDependency("../pong/fairydust.js", ['pong.fairydust'], ['cljs.core', 'quil.core', 'pong.setup']);
 goog.addDependency("../pong/bot.js", ['pong.bot'], ['pong.util', 'cljs.core']);
 goog.addDependency("../pong/leaderboard.js", ['pong.leaderboard'], ['goog.net.XhrIo', 'goog.Uri', 'cljs.core']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
