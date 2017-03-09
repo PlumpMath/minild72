@@ -51,10 +51,12 @@
     :y (/ court-height 6)
   })
 
+(def frame-rate 60)
+
 (defn setup []
   (q/smooth)
   (q/no-stroke)
-  (q/frame-rate 60)
+  (q/frame-rate frame-rate)
   {
     :bot {
       :paddle paddle-bot
@@ -78,4 +80,5 @@
       :paddle-height paddle-height
       :paddle-width paddle-width
     }
+    :tick 0
   })

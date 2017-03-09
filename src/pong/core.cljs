@@ -4,7 +4,8 @@
             [pong.setup :as ps]
             [pong.input :as pi]
             [pong.bot :as pb]
-            [pong.physics :as pp]))
+            [pong.physics :as pp]
+            [pong.fairydust :as pf]))
 
 (defn draw-rect [r]
   (q/rect (:x r) (:y r) (:w r) (:h r)))
@@ -14,18 +15,22 @@
 
 (defn next-ball [state ball [dx dy]]
   (let [hits (:hits (:player state))
-        vel-bump (+ (/ hits 10) 1)] ; speed up 10 times slower than usual
+        vel-bump (+ (/ hits 5) 1)] ; speed up 5 times slower than usual
         (assoc ball :x (+ (:x ball) (* dx vel-bump))
                     :y (+ (:y ball) dy))))
 
 (defn update-fn [state]
   (-> state
+    ; tick
+    (update-in [:tick] inc)
     ; move the ball
     (assoc-in  [:ball] (next-ball state (:ball state) (:ball-dir state)))
     ; bot paddle move
     (pb/move)
     ; collide the ball (if any)
     (pp/collision)
+    ; make things interesting
+    (pf/paddles)
     ))
 
 ; draw

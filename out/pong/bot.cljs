@@ -4,7 +4,7 @@
 ; bot basically follows ball
 (defn move [state]
   (let [ball (:ball state)
-        paddle-height (:paddle-height (:c state))
+        paddle-height (:h (:paddle (:bot state)))
         y (- (:y ball) (/ paddle-height 2))
         y1 (+ y (/ (:h ball) 2))
         court-height (:court-height (:c state))

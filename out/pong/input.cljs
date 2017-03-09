@@ -18,6 +18,8 @@
 (defn mouse [state event]
   (let [y (:y event)
         court-height (:court-height (:c state))
-        paddle-height (:paddle-height (:c state))
-        cy (pu/clamp y 0 (- court-height paddle-height))]
-  (assoc-in state [:player :paddle :y] cy)))
+        paddle-height (:h (:paddle (:player state)))
+        ; middle of paddle
+        y-middle (- y (/ paddle-height 2))
+        y-clamped (pu/clamp y-middle 0 (- court-height paddle-height))]
+  (assoc-in state [:player :paddle :y] y-clamped)))
