@@ -8,6 +8,7 @@
             [pong.fairydust :as pf]))
 
 (defn draw-rect [r]
+  (apply q/fill (:color r))
   (q/rect (:x r) (:y r) (:w r) (:h r)))
 
 (defn draw-str [s point]
@@ -28,7 +29,7 @@
     ; collide the ball (if any)
     (pp/collision)
     ; make things interesting
-    (pf/paddles)
+    (pf/sprinkle)
     ))
 
 ; draw

@@ -4,7 +4,7 @@
 
 ; here we inject some trouble into the games
 
-(defn paddles [state]
+(defn paddles-size [state]
   (let [paddle-player (:paddle (:player state))
         paddle-bot (:paddle (:bot state))
         hits (:hits (:player state))]
@@ -20,3 +20,22 @@
             (update-in [:bot :paddle :h] inc))
 
             :else state)))
+
+(defn paddles-color [state]
+  (let [paddle-player (:paddle (:player state))
+        paddle-bot (:paddle (:bot state))
+        hits (:hits (:player state))
+        c1 (mod (q/frame-count) 256)
+        c2 (+ 128 (rand-int 128))]
+        (cond
+          (> hits 9)
+
+          (-> state
+            (assoc-in [:player :paddle :color] [c1 c2 c2]))
+
+            :else state)))
+
+(defn sprinkle [state]
+  (-> state
+    (paddles-size)
+    (paddles-color)))

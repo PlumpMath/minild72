@@ -12,22 +12,18 @@
 
 (defn y [thing-height]
   (- (/ court-height 2) (/ thing-height 2)))
-
-(def paddle-bot
+(def base-paddle
   {
-    :x pb-width
     :y (y paddle-height)
     :w pb-width
     :h paddle-height
+    :color [255 255 255]
   })
+(def paddle-bot
+  (assoc base-paddle :x pb-width))
 
 (def paddle-player
-  {
-    :x (- court-width (* pb-width 2))
-    :y (y paddle-height)
-    :w pb-width
-    :h paddle-height
-    })
+  (assoc base-paddle :x (- court-width (* pb-width 2))))
 
 (def ball
   {
@@ -35,6 +31,7 @@
     :y (y pb-width)
     :w pb-width
     :h pb-width
+    :color [255 255 255]
     })
 (def ball-dir
   [1 0])
