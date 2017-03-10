@@ -15,7 +15,8 @@ goog.dom.removeChildren(links);
 return goog.dom.appendChild(links,a);
 });
 pong.dom.show_high_score = (function pong$dom$show_high_score(){
-return pong.dom.add_menu_link_goog_BANG_.call(null,"https://dollarone.games/elympics/getHighscores?gamename=p_ng&format=txt","Game over!");
+var url = window.location;
+return pong.dom.add_menu_link_goog_BANG_.call(null,url,">> play again");
 });
 
 //# sourceMappingURL=dom.js.map

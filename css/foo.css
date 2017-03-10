@@ -1,0 +1,31 @@
+body {
+  background-color: #666;
+  color: #eee;
+  font: 2em "Courier New", Courier, monospace;
+}
+a {
+  text-decoration: none;
+  color: pink;
+}
+
+#update a {
+  font-weight: bold;
+}
+
+.p_ng {
+  color: pink;
+  font: bold 3em "Courier New", Courier, monospace;
+}
+
+input {
+  padding: 10px;
+  background: #777;
+  color: white;
+  border: none;
+}
+
+#welcome {
+  font: italic 1em "Times New Roman";
+  padding-top: 50px;
+  color: #aaa;
+}

@@ -13,4 +13,5 @@
     (gdom/appendChild links a)))
 
 (defn show-high-score []
-  (add-menu-link_goog! "https://dollarone.games/elympics/getHighscores?gamename=p_ng&format=txt" "Game over!"))
+  (let [url (-> js/window .-location) ]
+  (add-menu-link_goog! url ">> play again")))
