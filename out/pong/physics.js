@@ -21,10 +21,10 @@ if(((ball_y > (court_height - new cljs.core.Keyword(null,"h","h",1109658740).clj
 pong.audio.beep_wall.call(null);
 
 return cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__16861){
-var vec__16862 = p__16861;
-var x = cljs.core.nth.call(null,vec__16862,(0),null);
-var y = cljs.core.nth.call(null,vec__16862,(1),null);
+return (function (p__17414){
+var vec__17415 = p__17414;
+var x = cljs.core.nth.call(null,vec__17415,(0),null);
+var y = cljs.core.nth.call(null,vec__17415,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,(- y)], null);
 });})(ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 );
@@ -34,10 +34,10 @@ var t = pong.physics.collision_factor.call(null,paddle_player,ball);
 pong.audio.beep_paddle.call(null);
 
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__16865){
-var vec__16866 = p__16865;
-var x = cljs.core.nth.call(null,vec__16866,(0),null);
-var _ = cljs.core.nth.call(null,vec__16866,(1),null);
+return (function (p__17418){
+var vec__17419 = p__17418;
+var x = cljs.core.nth.call(null,vec__17419,(0),null);
+var _ = cljs.core.nth.call(null,vec__17419,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),t], null);
 });})(t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"hits","hits",-2120002930)], null),cljs.core.inc);
@@ -47,10 +47,10 @@ var t = pong.physics.collision_factor.call(null,paddle_bot,ball);
 pong.audio.beep_paddle.call(null);
 
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__16869){
-var vec__16870 = p__16869;
-var x = cljs.core.nth.call(null,vec__16870,(0),null);
-var _ = cljs.core.nth.call(null,vec__16870,(1),null);
+return (function (p__17422){
+var vec__17423 = p__17422;
+var x = cljs.core.nth.call(null,vec__17423,(0),null);
+var _ = cljs.core.nth.call(null,vec__17423,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),t], null);
 });})(t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"bot","bot",-950896508),new cljs.core.Keyword(null,"hits","hits",-2120002930)], null),cljs.core.inc);

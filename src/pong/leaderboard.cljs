@@ -13,6 +13,5 @@
         url (goog.Uri. url)
         user (.getParameterValue url "name")
         score (:hits (:player state))]
-      (xhr/send (str "https://hooks.zapier.com/hooks/catch/175623/mqwd5m/?user=" user "&score=" score)
-
-      )))
+        (if (not (clojure.string/blank? user))
+        (xhr/send (str "https://hooks.zapier.com/hooks/catch/175623/mqwd5m/?user=" user "&score=" score)))))
