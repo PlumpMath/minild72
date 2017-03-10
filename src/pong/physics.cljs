@@ -9,12 +9,10 @@
 ; -0.5 to 0.5 from top (of paddle) to bottom.
 (defn collision-factor-x [paddle ball]
  (let [t (- (/ (- (:y ball) (:y paddle)) (:h paddle)) 0.5)]
-    ;(ps/log "t" t)
     t))
 
 (defn collision-factor [paddle ball]
   (let [t (/ (- (:y ball) (:y paddle)) (:h paddle))]
-  ;(ps/log "t" t)
   (if (> t 0.5)
     t
     (- t 1))))
@@ -81,5 +79,13 @@
             (update-in [:player :score] inc)
             (assoc-in [:ball] ps/ball)
             (assoc-in [:ball-dir] ps/ball-dir))
+
+          ; collide with any walls?
+
+          (first (filter #(pu/rect-intersects? ball %) (:walls state)))
+          (-> state
+            (assoc-in [:walls] (remove #(pu/rect-intersects? ball %) (:walls state)))
+            (update-in [:ball-dir] (fn [[x _]] [(- x) 0.3])))
+
 
           :else state)))

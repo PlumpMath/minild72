@@ -27,7 +27,7 @@
 
 (def ball
   {
-    :x (/ court-width 2)
+    :x (/ court-width 1.5)
     :y (y pb-width)
     :w pb-width
     :h pb-width
@@ -49,6 +49,14 @@
   })
 
 (def frame-rate 60)
+(defn wall [x y]
+  {
+    :x x
+    :y y
+    :w pb-width
+    :h pb-width
+    :color [100 255 255]
+    })
 
 (defn setup []
   (q/smooth)
@@ -71,6 +79,7 @@
     ; initially it flies to the right, thus x=1 and y=0
     :ball-dir ball-dir
     :reset-ball true
+    :walls [(wall 200 60) (wall 220 120) (wall 180 180)]
     :c {
       :court-height court-height
       :court-width court-width

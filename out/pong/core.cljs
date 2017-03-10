@@ -40,6 +40,7 @@
   (if (= (:game state) :over)
     (draw-str "GAME _VER" {:x (/ pong/court-width 2) :y (/ pong/court-height 2)})
     (do
+      (doseq [wall (:walls state)] (draw-rect wall))
       (draw-rect (:paddle (:bot state)))
       (draw-rect (:paddle (:player state)))
       (draw-rect (:ball state))
