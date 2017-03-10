@@ -37,12 +37,14 @@
   ; set background color to dark gray, draw color to white
   (q/background-float 0x20)
   (q/fill 0xff)
-  (draw-rect (:paddle (:bot state)))
-  (draw-rect (:paddle (:player state)))
-  (draw-rect (:ball state))
-  (draw-str (:hits (:bot state)) (:score-pos (:bot state)))
-  (draw-str (:hits (:player state)) (:score-pos (:player state)))
-  )
+  (if (= (:game state) :over)
+    (draw-str "GAME _VER" {:x (/ ps/court-width 2) :y (/ ps/court-height 2)})
+    (do
+      (draw-rect (:paddle (:bot state)))
+      (draw-rect (:paddle (:player state)))
+      (draw-rect (:ball state))
+      (draw-str (:hits (:bot state)) (:score-pos (:bot state)))
+      (draw-str (:hits (:player state)) (:score-pos (:player state))))))
 
 ; run
 (q/defsketch pong

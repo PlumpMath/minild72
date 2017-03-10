@@ -6,8 +6,17 @@ goog.require('pong.setup');
 goog.require('pong.audio');
 goog.require('pong.leaderboard');
 goog.require('pong.dom');
+pong.physics.collision_factor_x = (function pong$physics$collision_factor_x(paddle,ball){
+var t = (((new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(ball) - new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(paddle)) / new cljs.core.Keyword(null,"h","h",1109658740).cljs$core$IFn$_invoke$arity$1(paddle)) - 0.5);
+return t;
+});
 pong.physics.collision_factor = (function pong$physics$collision_factor(paddle,ball){
-return (((new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(ball) - new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(paddle)) / new cljs.core.Keyword(null,"h","h",1109658740).cljs$core$IFn$_invoke$arity$1(paddle)) - 0.5);
+var t = ((new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(ball) - new cljs.core.Keyword(null,"y","y",-1757859776).cljs$core$IFn$_invoke$arity$1(paddle)) / new cljs.core.Keyword(null,"h","h",1109658740).cljs$core$IFn$_invoke$arity$1(paddle));
+if((t > 0.5)){
+return t;
+} else {
+return (t - (1));
+}
 });
 pong.physics.collision = (function pong$physics$collision(state){
 var ball = new cljs.core.Keyword(null,"ball","ball",542859139).cljs$core$IFn$_invoke$arity$1(state);
@@ -21,10 +30,10 @@ if(((ball_y > (court_height - new cljs.core.Keyword(null,"h","h",1109658740).clj
 pong.audio.beep_wall.call(null);
 
 return cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__17414){
-var vec__17415 = p__17414;
-var x = cljs.core.nth.call(null,vec__17415,(0),null);
-var y = cljs.core.nth.call(null,vec__17415,(1),null);
+return (function (p__17810){
+var vec__17811 = p__17810;
+var x = cljs.core.nth.call(null,vec__17811,(0),null);
+var y = cljs.core.nth.call(null,vec__17811,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,(- y)], null);
 });})(ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 );
@@ -34,10 +43,10 @@ var t = pong.physics.collision_factor.call(null,paddle_player,ball);
 pong.audio.beep_paddle.call(null);
 
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__17418){
-var vec__17419 = p__17418;
-var x = cljs.core.nth.call(null,vec__17419,(0),null);
-var _ = cljs.core.nth.call(null,vec__17419,(1),null);
+return (function (p__17814){
+var vec__17815 = p__17814;
+var x = cljs.core.nth.call(null,vec__17815,(0),null);
+var _ = cljs.core.nth.call(null,vec__17815,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),t], null);
 });})(t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"hits","hits",-2120002930)], null),cljs.core.inc);
@@ -47,10 +56,10 @@ var t = pong.physics.collision_factor.call(null,paddle_bot,ball);
 pong.audio.beep_paddle.call(null);
 
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__17422){
-var vec__17423 = p__17422;
-var x = cljs.core.nth.call(null,vec__17423,(0),null);
-var _ = cljs.core.nth.call(null,vec__17423,(1),null);
+return (function (p__17818){
+var vec__17819 = p__17818;
+var x = cljs.core.nth.call(null,vec__17819,(0),null);
+var _ = cljs.core.nth.call(null,vec__17819,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),t], null);
 });})(t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"bot","bot",-950896508),new cljs.core.Keyword(null,"hits","hits",-2120002930)], null),cljs.core.inc);
@@ -62,7 +71,7 @@ pong.dom.show_high_score.call(null);
 
 cljs.core.assoc_in.call(null,cljs.core.assoc_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"bot","bot",-950896508),new cljs.core.Keyword(null,"score","score",-1963588780)], null),cljs.core.inc),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball","ball",542859139)], null),pong.setup.ball),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),pong.setup.ball_dir);
 
-return cljs.core.PersistentArrayMap.EMPTY;
+return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"game","game",-441523833),new cljs.core.Keyword(null,"over","over",192553051)], null);
 } else {
 if((ball_x < (0))){
 return cljs.core.assoc_in.call(null,cljs.core.assoc_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"score","score",-1963588780)], null),cljs.core.inc),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball","ball",542859139)], null),pong.setup.ball),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),pong.setup.ball_dir);

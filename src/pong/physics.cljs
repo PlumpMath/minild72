@@ -7,10 +7,17 @@
 
 ; collision with the paddle returns a value in the range
 ; -0.5 to 0.5 from top (of paddle) to bottom.
+(defn collision-factor-x [paddle ball]
+ (let [t (- (/ (- (:y ball) (:y paddle)) (:h paddle)) 0.5)]
+    ;(ps/log "t" t)
+    t))
+
 (defn collision-factor [paddle ball]
- (- (/ (- (:y ball) (:y paddle))
-       (:h paddle))
-    0.5))
+  (let [t (/ (- (:y ball) (:y paddle)) (:h paddle))]
+  ;(ps/log "t" t)
+  (if (> t 0.5)
+    t
+    (- t 1))))
 
 (defn collision [state]
   (let [ball (:ball state)
@@ -64,7 +71,7 @@
               (update-in [:bot :score] inc)
               (assoc-in [:ball] ps/ball)
               (assoc-in [:ball-dir] ps/ball-dir))
-              {})
+              {:game :over})
 
           (< ball-x 0)
           (-> state
