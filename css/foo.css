@@ -24,7 +24,7 @@ input {
   border: none;
 }
 
-#welcome {
+.info {
   font: italic 1em "Times New Roman";
   padding-top: 50px;
   color: #aaa;
