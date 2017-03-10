@@ -25,7 +25,14 @@ input {
 }
 
 .info {
-  font: italic 1em "Times New Roman";
   padding-top: 50px;
   color: #aaa;
+}
+
+#features {
+  font-size: 0.5em;;
+  color: white;
+}
+#features h3 {
+  font-weight: normal;
 }
