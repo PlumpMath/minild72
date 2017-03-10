@@ -4,7 +4,7 @@
 
 ; here we inject some trouble into the games
 
-(defn paddles-size [state]
+(defn paddles-height [state]
   (let [paddle-player (:paddle (:player state))
         paddle-bot (:paddle (:bot state))
         hits (:hits (:player state))]
@@ -13,7 +13,7 @@
             ; don't shrink smaller than paddle width
             (> (:h paddle-player) ps/pb-width)
             ; every few seconds, make the paddle smaller
-            (= (mod (q/frame-count) (* ps/frame-rate 10)) 0))
+            (= (mod (q/frame-count) (* ps/frame-rate 5)) 0))
           (-> state
             (update-in [:player :paddle :h] dec)
             ; just to rub it in
@@ -22,14 +22,11 @@
             :else state)))
 
 (defn paddles-color [state]
-  (let [paddle-player (:paddle (:player state))
-        paddle-bot (:paddle (:bot state))
-        hits (:hits (:player state))
+  (let [hits (:hits (:player state))
         c1 (mod (q/frame-count) 256)
         c2 (+ 128 (rand-int 128))]
         (cond
           (> hits 9)
-
           (-> state
             (assoc-in [:player :paddle :color] [c1 c2 c2]))
 
@@ -37,5 +34,5 @@
 
 (defn sprinkle [state]
   (-> state
-    (paddles-size)
+    (paddles-height)
     (paddles-color)))

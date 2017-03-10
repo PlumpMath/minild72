@@ -73,6 +73,9 @@
               (assoc-in [:ball-dir] ps/ball-dir))
               {:game :over})
 
+          ; currently, this only happens when the ball
+          ; goes through the bot paddle, as the bot
+          ; is 100% following the ball.
           (< ball-x 0)
           (-> state
             (update-in [:player :score] inc)

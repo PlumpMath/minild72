@@ -1,11 +1,11 @@
 (ns pong.core
   (:require [quil.core :as q :include-macros true]
             [quil.middleware :as m]
-            [pong.setup :as ps]
-            [pong.input :as pi]
-            [pong.bot :as pb]
-            [pong.physics :as pp]
-            [pong.fairydust :as pf]))
+            [pong.setup :as pong]
+            [pong.input :as input]
+            [pong.bot :as bot]
+            [pong.physics :as physics]
+            [pong.fairydust :as fairydust]))
 
 (defn draw-rect [r]
   (apply q/fill (:color r))
@@ -25,11 +25,11 @@
     ; move the ball
     (assoc-in  [:ball] (next-ball state (:ball state) (:ball-dir state)))
     ; bot paddle move
-    (pb/move)
+    (bot/move)
     ; collide the ball (if any)
-    (pp/collision)
+    (physics/collision)
     ; make things interesting
-    (pf/sprinkle)
+    (fairydust/sprinkle)
     ))
 
 ; draw
@@ -38,7 +38,7 @@
   (q/background-float 0x20)
   (q/fill 0xff)
   (if (= (:game state) :over)
-    (draw-str "GAME _VER" {:x (/ ps/court-width 2) :y (/ ps/court-height 2)})
+    (draw-str "GAME _VER" {:x (/ pong/court-width 2) :y (/ pong/court-height 2)})
     (do
       (draw-rect (:paddle (:bot state)))
       (draw-rect (:paddle (:player state)))
@@ -49,10 +49,10 @@
 ; run
 (q/defsketch pong
   :host "pong"
-  :size [ps/court-width ps/court-height]
-  :setup ps/setup
+  :size [pong/court-width pong/court-height]
+  :setup pong/setup
   :update update-fn
   :draw draw
-  ;:key-pressed pi/key-pressed
-  :mouse-moved pi/mouse
+  ;:key-pressed input/key-pressed
+  :mouse-moved input/mouse
   :middleware [m/fun-mode])
