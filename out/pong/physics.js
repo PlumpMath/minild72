@@ -30,10 +30,10 @@ if(((ball_y > (court_height - new cljs.core.Keyword(null,"h","h",1109658740).clj
 pong.audio.beep_wall.call(null);
 
 return cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__20780){
-var vec__20781 = p__20780;
-var x = cljs.core.nth.call(null,vec__20781,(0),null);
-var y = cljs.core.nth.call(null,vec__20781,(1),null);
+return (function (p__22044){
+var vec__22045 = p__22044;
+var x = cljs.core.nth.call(null,vec__22045,(0),null);
+var y = cljs.core.nth.call(null,vec__22045,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,(- y)], null);
 });})(ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 );
@@ -43,10 +43,10 @@ var t = pong.physics.collision_factor.call(null,paddle_player,ball);
 pong.audio.beep_paddle.call(null);
 
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__20784){
-var vec__20785 = p__20784;
-var x = cljs.core.nth.call(null,vec__20785,(0),null);
-var _ = cljs.core.nth.call(null,vec__20785,(1),null);
+return (function (p__22048){
+var vec__22049 = p__22048;
+var x = cljs.core.nth.call(null,vec__22049,(0),null);
+var _ = cljs.core.nth.call(null,vec__22049,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),t], null);
 });})(t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"hits","hits",-2120002930)], null),cljs.core.inc);
@@ -56,10 +56,10 @@ var t = pong.physics.collision_factor.call(null,paddle_bot,ball);
 pong.audio.beep_paddle.call(null);
 
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__20788){
-var vec__20789 = p__20788;
-var x = cljs.core.nth.call(null,vec__20789,(0),null);
-var _ = cljs.core.nth.call(null,vec__20789,(1),null);
+return (function (p__22052){
+var vec__22053 = p__22052;
+var x = cljs.core.nth.call(null,vec__22053,(0),null);
+var _ = cljs.core.nth.call(null,vec__22053,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),t], null);
 });})(t,ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"bot","bot",-950896508),new cljs.core.Keyword(null,"hits","hits",-2120002930)], null),cljs.core.inc);
@@ -77,20 +77,20 @@ if((ball_x < (0))){
 return cljs.core.assoc_in.call(null,cljs.core.assoc_in.call(null,cljs.core.update_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"player","player",-97687400),new cljs.core.Keyword(null,"score","score",-1963588780)], null),cljs.core.inc),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball","ball",542859139)], null),pong.setup.ball),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),pong.setup.ball_dir);
 } else {
 if(cljs.core.truth_(cljs.core.first.call(null,cljs.core.filter.call(null,((function (ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p1__20762_SHARP_){
-return pong.util.rect_intersects_QMARK_.call(null,ball,p1__20762_SHARP_);
+return (function (p1__22026_SHARP_){
+return pong.util.rect_intersects_QMARK_.call(null,ball,p1__22026_SHARP_);
 });})(ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ,new cljs.core.Keyword(null,"walls","walls",-268788818).cljs$core$IFn$_invoke$arity$1(state))))){
 return cljs.core.update_in.call(null,cljs.core.assoc_in.call(null,state,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"walls","walls",-268788818)], null),cljs.core.remove.call(null,((function (ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p1__20763_SHARP_){
-return pong.util.rect_intersects_QMARK_.call(null,ball,p1__20763_SHARP_);
+return (function (p1__22027_SHARP_){
+return pong.util.rect_intersects_QMARK_.call(null,ball,p1__22027_SHARP_);
 });})(ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 ,new cljs.core.Keyword(null,"walls","walls",-268788818).cljs$core$IFn$_invoke$arity$1(state))),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ball-dir","ball-dir",491270907)], null),((function (ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width){
-return (function (p__20792){
-var vec__20793 = p__20792;
-var x = cljs.core.nth.call(null,vec__20793,(0),null);
-var _ = cljs.core.nth.call(null,vec__20793,(1),null);
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),0.3], null);
+return (function (p__22056){
+var vec__22057 = p__22056;
+var x = cljs.core.nth.call(null,vec__22057,(0),null);
+var _ = cljs.core.nth.call(null,vec__22057,(1),null);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(- x),(cljs.core.rand.call(null,(2)) - (1))], null);
 });})(ball,ball_y,ball_x,paddle_player,paddle_bot,court_height,court_width))
 );
 } else {

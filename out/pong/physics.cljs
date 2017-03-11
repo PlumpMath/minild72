@@ -85,7 +85,7 @@
           (first (filter #(pu/rect-intersects? ball %) (:walls state)))
           (-> state
             (assoc-in [:walls] (remove #(pu/rect-intersects? ball %) (:walls state)))
-            (update-in [:ball-dir] (fn [[x _]] [(- x) 0.3])))
+            (update-in [:ball-dir] (fn [[x _]] [(- x) (- (rand 2) 1)])))
 
 
           :else state)))

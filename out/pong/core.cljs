@@ -21,6 +21,10 @@
                     :y (+ (:y ball) dy))))
 
 (defn update-fn [state]
+  (cond
+    (= (:game state) :over)
+    state
+    :else
   (-> state
     ; move the ball
     (assoc-in  [:ball] (next-ball state (:ball state) (:ball-dir state)))
@@ -30,7 +34,7 @@
     (physics/collision)
     ; make things interesting
     (fairydust/sprinkle)
-    ))
+    )))
 
 ; draw
 (defn draw [state]

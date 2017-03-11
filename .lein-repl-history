@@ -1,1 +1,14 @@
 (- 450 70)
+(rand-int 2)
+(rand 2)
+(def x {:w #{}})
+(-> x (assoc-in [:w] (conj 3)))
+x
+(-> x (assoc-in [:w] (conj 3)) (assoc-in [:w] (conj 5)))
+(-> x (update-in [:w] (conj 3)) (update-in [:w] (conj 5)))
+(-> x (update-in [:w] (conj 3)))
+(-> x (update-in [:w] (fn [coll] (conj coll 3))))
+(-> x (update-in [:w] (fn [coll] (conj coll 3))) (update-in [:w] (fn [coll] (conj coll 5))))
+x
+(contains? (:w (-> x (update-in [:w] (fn [coll] (conj coll 3))) (update-in [:w] (fn [coll] (conj coll 5))))) 3)
+(contains? (:w (-> x (update-in [:w] (fn [coll] (conj coll 3))) (update-in [:w] (fn [coll] (conj coll 5))))) 7)
